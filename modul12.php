@@ -143,11 +143,6 @@
             $people = $example_persons_array[$people_key]; 
 
             $gender2 = getGenderFromName($people['fullname']);
-        
-            $array8 = getPartsFromFullname($fullname);
-            var_dump($gender1);
-            var_dump($gender2);
-            var_dump($fullname);
 
             while ($gender1 == $gender2) {
                 $people_key = array_rand($example_persons_array);
@@ -155,8 +150,14 @@
 
                 $gender2 = getGenderFromName($people['fullname']);
             }  
+
+            var_dump($gender1);
+            var_dump($gender2);
+            
+            $array8 = getPartsFromFullname($people['fullname']);
+
             $a = random_int(50, 100);
-            echo $name . ' ' . $surname . '.' . $name . ' ' . $surname . ". = Идеально на {$a}% <br>";
+            echo $name . ' ' . $surname . ' + ' . $array8['name'] . ' ' . $array8['surname'] . " = Идеально на {$a}% <br>";
             return $people;     
         
         }
